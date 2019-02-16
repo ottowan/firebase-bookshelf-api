@@ -1,0 +1,69 @@
+<html>
+
+<head>
+  <title>Firebase Authentication</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="css/material.min.css">
+  <script defer src="js/material.min.js"></script>
+</head>
+
+<body>
+
+
+
+  <div class="mdl-layout mdl-js-layout">
+    <header class="mdl-layout__header mdl-layout__header--scroll">
+      <div class="mdl-layout__header-row">
+        <!-- Title -->
+        <span class="mdl-layout-title">ระบบสมาชิก</span>
+      </div>
+    </header>
+    <div class="mdl-layout__drawer">
+      <span class="mdl-layout-title">เมนู</span>
+      <nav class="mdl-navigation">
+        <a class="mdl-navigation__link" href="register.html">สมัครสมาชิกใหม่</a>
+        <a class="mdl-navigation__link" href="add.html">เพิ่มข้อมูล</a>
+      </nav>
+    </div>
+    <main class="mdl-layout__content">
+      <div class="page-content" style="padding-top: 60px; margin:0 auto;">
+        <div style="margin:0 auto;" align="center">
+          <h2>ลบแล้ว!!!!!!!</h2>
+          <a href="./main.html">กลับหน้าหลัก</a>
+
+        </div>
+
+      </div>
+    </main>
+
+
+  </div>
+
+
+
+  <script src="https://www.gstatic.com/firebasejs/5.8.3/firebase.js"></script>
+  <script>
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyCslIa6x3Bf-qYrsPJaRj88CRQ1NxuNw5E",
+      authDomain: "parinya-api.firebaseapp.com",
+      databaseURL: "https://parinya-api.firebaseio.com",
+      projectId: "parinya-api",
+      storageBucket: "parinya-api.appspot.com",
+      messagingSenderId: "306464891417"
+    };
+    firebase.initializeApp(config);
+
+    
+    var searchParams = new URLSearchParams(window.location.search);
+    var database = firebase.database().ref("bookshelf/data/" + searchParams.get("id"))
+    database.remove()
+
+
+
+  </script>
+
+
+</body>
+
+</html>

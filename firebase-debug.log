@@ -1,0 +1,25 @@
+[debug] [2019-02-16T06:34:29.830Z] ----------------------------------------------------------------------
+[debug] [2019-02-16T06:34:29.832Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\ANT-LAB\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js serve
+[debug] [2019-02-16T06:34:29.833Z] CLI Version:   6.3.1
+[debug] [2019-02-16T06:34:29.833Z] Platform:      win32
+[debug] [2019-02-16T06:34:29.833Z] Node Version:  v10.14.2
+[debug] [2019-02-16T06:34:29.834Z] Time:          Sat Feb 16 2019 13:34:29 GMT+0700 (Indochina Time)
+[debug] [2019-02-16T06:34:29.834Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2019-02-16T06:34:29.840Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2019-02-16T06:34:29.841Z] > authorizing via signed-in user
+[debug] [2019-02-16T06:34:29.841Z] [iam] checking project parinya-api for permissions ["firebase.projects.get"]
+[debug] [2019-02-16T06:34:29.842Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/parinya-api:testIamPermissions  
+
+[debug] [2019-02-16T06:34:31.134Z] <<< HTTP RESPONSE 200
+[debug] [2019-02-16T06:34:31.136Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/parinya-api  
+ 
+[debug] [2019-02-16T06:34:32.425Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from 'D:\615159090005\firebase'...
+[info] 
+[debug] [2019-02-16T06:34:32.426Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/306464891417/clients/_:getWebAppConfig  
+ 
+[debug] [2019-02-16T06:34:32.835Z] <<< HTTP RESPONSE 200
+[info] i  hosting: Serving hosting files from: parinya-api
+[info] +  hosting: Local server: http://localhost:5000

@@ -1,0 +1,93 @@
+<html>
+
+<head>
+  <title>Firebase Authentication</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="css/material.min.css">
+  <script defer src="js/material.min.js"></script>
+</head>
+
+<body>
+
+
+
+  <div class="mdl-layout mdl-js-layout">
+    <header class="mdl-layout__header mdl-layout__header--scroll">
+      <div class="mdl-layout__header-row">
+        <!-- Title -->
+        <span class="mdl-layout-title">ระบบสมาชิก</span>
+      </div>
+    </header>
+    <div class="mdl-layout__drawer">
+      <span class="mdl-layout-title">เมนู</span>
+      <nav class="mdl-navigation">
+        <a class="mdl-navigation__link" href="register.html">สมัครสมาชิกใหม่</a>
+        <a class="mdl-navigation__link" href="add.html">เพิ่มข้อมูล</a>
+      </nav>
+    </div>
+    <main class="mdl-layout__content">
+      <div class="page-content" style="padding-top: 60px; margin:0 auto;">
+        <div style="margin:0 auto;" align="center">
+          <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp" style="width:40%;" id="ex-table">
+            <thead>
+              <tr>
+                <th>Cover</th>
+                <th>Title</th>
+                <th></th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+            </tbody>
+          </table>
+
+
+        </div>
+
+      </div>
+    </main>
+
+
+  </div>
+
+
+
+  <script src="https://www.gstatic.com/firebasejs/5.8.3/firebase.js"></script>
+  <script>
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyCslIa6x3Bf-qYrsPJaRj88CRQ1NxuNw5E",
+      authDomain: "parinya-api.firebaseapp.com",
+      databaseURL: "https://parinya-api.firebaseio.com",
+      projectId: "parinya-api",
+      storageBucket: "parinya-api.appspot.com",
+      messagingSenderId: "306464891417"
+    };
+    firebase.initializeApp(config);
+
+    var database = firebase.database();
+    var low_database = firebase.database();
+
+    var ref = firebase.database().ref("bookshelf/data/");
+    ref.orderByChild("title").limitToFirst(20).on("child_added", function (snapshot) {
+      //console.log("Key: "+snapshot.key, "snapshot",snapshot.val());
+      var content = '';
+      console.log("username: ", snapshot.val().username);
+      content += '<tr >';
+      content += '<td align="left"> <img src="' + snapshot.val().photos + '" style="width:100px; height:auto;"/></td>';
+      content += '<td align="left">' + snapshot.val().title + '</td>';
+      content += '<td><a href="edit.html?id=' + snapshot.key + '" class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent">Edit</a></td>';
+      content += '<td><a href="delete.html?id=' + snapshot.key + '" class="mdl-button mdl-js-button mdl-button--raised">Delete</a></td>';
+      content += '</tr>';
+      var theDiv = document.getElementById("ex-table");
+      theDiv.innerHTML += content;
+
+    });
+
+
+  </script>
+
+
+</body>
+
+</html>
